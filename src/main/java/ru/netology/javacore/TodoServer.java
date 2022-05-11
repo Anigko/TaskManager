@@ -16,7 +16,7 @@ public class TodoServer {
                  PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                  BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-                out.printf("New connection accepted. Port: %d%n", clientSocket.getPort());
+                out.printf(todos.getAllTasks());
 
                 final String json = in.readLine();
 
@@ -27,7 +27,7 @@ public class TodoServer {
                 } else if (type.equals("REMOVE")) {
                     todos.removeTask(task);
                 }
-                todos.getAllTasks();
+                //System.out.println(todos.getAllTasks());
 
             } catch (IOException e) {
                 e.printStackTrace();

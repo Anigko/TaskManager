@@ -15,7 +15,6 @@ public class Client {
     }
 
     public static void main(String[] args) throws IOException {
-        Todos todos = new Todos();
         try (
                 Socket socket = new Socket("localhost", 8989);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -23,9 +22,7 @@ public class Client {
         ) {
             out.println("{ \"type\": \"ADD\", \"task\": \"task #" + pickRandomChar() + "\" }");
             System.out.println(in.readLine());
-            todos.getAllTasks();
 
         }
-
     }
 }

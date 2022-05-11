@@ -19,10 +19,9 @@ public class Todos {
 
     public String getAllTasks() {
         StringBuilder sb = new StringBuilder();
-        for (Object o : tasks)
-        {
+        for (Object o : tasks) {
             sb.append(o.toString());
-            sb.append("\t");
+            sb.append("\n");
         }
         return sb.toString();
 
