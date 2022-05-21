@@ -7,10 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class TodoServer {
-    final int port = 8989;
+    final int port = 8089;
 
     public TodoServer(int port, Todos todos) {
-        //  стартуем сервер на порту 8989
+        //  стартуем сервер на порту 8089
         try (ServerSocket serverSocket = new ServerSocket(port)) {
 
             while (true) {
@@ -31,8 +31,8 @@ public class TodoServer {
                     String task = JsonPath.read(json, "$.task");
                     if (type.equals("ADD")) {
                         todos.addTask(task);
-//                    } else if (type.equals("REMOVE")) {
-//                        todos.removeTask(task);
+                    } else if (type.equals("REMOVE")) {
+                        todos.removeTask(task);
                     }
                     // возврат клиенту актуального списка задач
                     out.printf(todos.getAllTasks());
