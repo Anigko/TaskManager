@@ -7,10 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class TodoServer {
-    final int port = 8089;
+    final int port = 8989;
 
     public TodoServer(int port, Todos todos) {
-        //  стартуем сервер на порту 8089
+        //  стартуем сервер на порту 8989
         try (ServerSocket serverSocket = new ServerSocket(port)) {
 
             while (true) {
